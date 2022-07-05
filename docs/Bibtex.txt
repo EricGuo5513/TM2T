@@ -1,0 +1,6 @@
+@inproceedings{chuan2022tm2t,
+  title={TM2T: Stochastic and Tokenized Modeling for the Reciprocal Generation of 3D Human Motions and Texts},
+  author={Guo, Chuan and Zuo, Xinxin and Wang, Sen and Cheng, Li},
+  booktitle={ECCV},
+  year={2022}
+}

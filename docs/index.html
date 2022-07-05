@@ -183,7 +183,7 @@
 
 		<td align=center width=50px>
 		<center>
-		<span style="font-size:18px">ECCV 2022 <a href="https://openaccess.thecvf.com/content/CVPR2022/papers/Guo_Generating_Diverse_and_Natural_3D_Human_Motions_From_Text_CVPR_2022_paper.pdf">[Paper]</a></span>
+		<span style="font-size:18px">ECCV 2022 <a href="paper_link">[Paper]</a></span>
 		</center>
 		</td>
 		
@@ -195,7 +195,7 @@
   			  <tr>
   	              <td width=600px>
   					<center>
-  	                	<a href="./website/teaser.png"><img src = "./teaser_image.png" height="250px"></img></href></a><br>
+  	                	<a href="./teaser.png"><img src = "./teaser_image.png" height="300px"></img></href></a><br>
 					</center>
   	              </td>
   	          </tr>
@@ -203,7 +203,7 @@
 
       	  <br>
       	  <p style="text-align:justify">
-          	 Automated generation of 3D human motions from text is a challenging problem. The generated motions are expected to be sufficiently diverse to explore the text-grounded motion space, and more importantly, accurately depicting the content in prescribed text descriptions. Here we tackle this problem with a two-stage approach: text2length sampling and text2motion generation. Text2length involves sampling from the learned distribution function of motion lengths conditioned on the input text. This is followed by our text2motion module using temporal variational autoencoder to synthesize a diverse set of human motions of the sampled lengths. Instead of directly engaging with pose sequences, we propose motion snippet code as our internal motion representation, which captures local semantic motion contexts and is empirically shown to facilitate the generation of plausible motions faithful to the input text. Moreover, a large-scale dataset of scripted 3D Human motions, HumanML3D, is constructed, consisting of 14,616 motion clips and 44,970 text descriptions.
+          	 Inspired by the strong ties between vision and language, the two intimate human sensing and communication modalities, our paper aims to explore the generation of 3D human full-body motions from texts, as well as its reciprocal task, shorthanded for text2motion and motion2text, respectively. To tackle the existing challenges, especially to enable the generation of multiple distinct motions from the same text, and to avoid the undesirable production of trivial motionless pose sequences, we propose the use of motion token, a discrete and compact motion representation. This provides one level playing ground when considering both motions and text signals, as the motion and text tokens, respectively. Moreover, our motion2text module is integrated into the inverse alignment process of our text2motion training pipeline, where a significant deviation of synthesized text from the input text would be penalized by a large training loss; empirically this is shown to effectively improve performance. Finally, the mappings in-between the two modalities of motions and texts are facilitated by adapting the neural model for machine translation (NMT) to our context. This autoregressive modeling of the distribution over discrete motion tokens further enables non-deterministic production of pose sequences, of variable lengths, from an input text. Our approach is flexible, could be used for both text2motion and motion2text tasks. Empirical evaluations on two benchmark datasets demonstrate the superior performance of our approach on both tasks over a variety of state-of-the-art methods.
       	  </p>
 
 
@@ -214,13 +214,13 @@
 	 		<center><h1>Paper</h1></center>
   			  <tr>
   			  		<td width=50px align=left></td>
-				  <td><a href="https://openaccess.thecvf.com/content/CVPR2022/papers/Guo_Generating_Diverse_and_Natural_3D_Human_Motions_From_Text_CVPR_2022_paper.pdf"><img style="height:180px" src="./cvpr_paper.png"/></a></td>
+				  <td><a href="paper_link"><img style="height:180px" src="./eccv_paper.png"/></a></td>
 				  <td width=10px align=left></td>
-				  <td><span style="font-size:14pt">Generating Diverse and Natural 3D Human Motions from Texts<br>
-                          <i>Chuan Guo, Shihao Zou, Xinxin Zuo, Sen Wang, Wei Ji, Xingyu Li, Li Cheng</i><br>
-				  CVPR, 2022<br>
+				  <td><span style="font-size:14pt">TM2T: Stochastic and Tokenized Modeling for the Reciprocal Generation of 3D Human Motions and Texts<br>
+                          <i>Chuan Guo, Xinxin Zuo, Sen Wang, Li Cheng</i><br>
+				  ECCV, 2022<br>
 				  <br>
-				  <a href="https://openaccess.thecvf.com/content/CVPR2022/papers/Guo_Generating_Diverse_and_Natural_3D_Human_Motions_From_Text_CVPR_2022_paper.pdf">[Paper]</a>
+				  <a href="paper_link">[Paper]</a>
 				  &nbsp; &nbsp;
                    		 <a href="./Bibtex.txt">[Bibtex]</a>
                    		 </span>
@@ -238,7 +238,7 @@
 				<tr height="600px">
 					<td valign="top" width=1000px>
 					<center>
-						<iframe width="900" height="500" src="https://www.youtube.com/embed/085mBtMeZpg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			
+						<iframe width="950" height="500" src="https://www.youtube.com/embed/k7BRyxAxsfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			
 					</center>
 					</td>
 				</tr>
@@ -256,13 +256,13 @@
 		<center><h1>Try Our Code</h1></center>
   		  <table align=center width=900>
 			<tr><center>
-                          <a href='https://github.com/EricGuo5513/text-to-motion'><img class="round" style="height:400" src="./model.png"/></a>
+                          <a href='https://github.com/EricGuo5513/TM2T'><img class="round" style="height:400" src="./framework.png"/></a>
                         </center></tr>
           	  </table>
 
     	  <table align=center width=800px>
       		<tr><center> <br>
-        	<span style="font-size:28px">&nbsp;<a href='https://github.com/EricGuo5513/text-to-motion'>[GitHub]</a>
+        	<span style="font-size:28px">&nbsp;<a href='https://github.com/EricGuo5513/TM2T'>[GitHub]</a>
           
         	<span style="font-size:28px"></a></span>
       		<br>
@@ -279,7 +279,7 @@
   	              <td>
   					<left>
 	  		  <center><h1>Acknowledgements</h1></center>
-	  		    This research was partly supported by the University of Alberta Start-up Grant, the UAHJIC Grants, and the NSERC Discovery Grants (No. RGPIN-2019-04575). This webpage template was borrowed from <a href="https://richzhang.github.io/colorization/">here</a>.
+	  		    This work was partly supported by the NSERC Discovery, UAHJIC, and CFIJELF grants. I also appreciate that the university of Alberta fund me with the Alberta Graduate Excellence Scholarship. This webpage template was borrowed from <a href="https://richzhang.github.io/colorization/">here</a>.
 
 			</left>
 				</td>
