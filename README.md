@@ -23,7 +23,8 @@ If you cannot successfully create the environment, here is a list of required li
   tqdm
   ffmpeg = 4.3.1   # Other version may also work but are not tested.
   matplotlib = 3.3.1
-  [nlpeval](https://github.com/Maluuba/nlg-eval)
+  nlpeval (https://github.com/Maluuba/nlg-eval)     # For evaluation of motion-to-text only
+  bertscore (https://github.com/Tiiiger/bert_score) # For evaluation of motion-to-text only
   ```
   
   After all, if you want to generate 3D motions from customized raw texts, you still need to install the language model for spacy. 
@@ -62,7 +63,7 @@ If you cannot successfully create the environment, here is a list of required li
   mkdir ./checkpoints
   ```
     
- #### Download models for HumanML3D from [[here]](https://drive.google.com/file/d/1DSaKqWX2HlwBtVH5l7DdW96jeYUIXsOP/view?usp=sharing). Unzip and place them under checkpoint directory, which should be like
+ #### Download models for HumanML3D from [[here]](https://drive.google.com/file/d/1o7RTDQcToJjTm9_mNWTyzvZvjTWpZfug/view?usp=sharing). Unzip and place them under checkpoint directory, which should be like
 ```
 ./checkpoints/t2m/
 ./checkpoints/t2m/Comp_v6_KLD01/           # Text-to-motion generation model
@@ -70,7 +71,7 @@ If you cannot successfully create the environment, here is a list of required li
 ./checkpoints/t2m/length_est_bigru/        # Text-to-length sampling model
 ./checkpoints/t2m/text_mot_match/          # Motion & Text feature extractors for evaluation
  ```
- #### Download models for KIT-ML [[here]](https://drive.google.com/file/d/1tX79xk0fflp07EZ660Xz1RAFE33iEyJR/view?usp=sharing). Unzip and place them under checkpoint directory.
+ #### Download models for KIT-ML [[here]]([https://drive.google.com/file/d/1tX79xk0fflp07EZ660Xz1RAFE33iEyJR/view?usp=sharing](https://drive.google.com/file/d/1xEoMy1aBRe0fxYeSzeLwzjHr9Ia6d6Gf/view?usp=sharing)). Unzip and place them under checkpoint directory.
     
  ## Training Models
  
