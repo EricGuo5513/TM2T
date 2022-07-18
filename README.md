@@ -77,43 +77,47 @@ If you cannot successfully create the environment, here is a list of required li
  ## Training Models
  
  All intermediate meta files/animations/models will be saved to checkpoint directory under the folder specified by argument "--name".
- ### Training motion autoencoder
+ ### Training motion discretizer 
  #### HumanML3D
 ```sh
-python train_decomp_v3.py --name Decomp_SP001_SM001_H512 --gpu_id 0 --window_size 24 --dataset_name t2m
+python train_vq_tokenizer_v3.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dataset_name t2m --n_resblk 3
 ```
 #### KIT-ML
 ```sh
-python train_decomp_v3.py --name Decomp_SP001_SM001_H512 --gpu_id 0 --window_size 24 --dataset_name kit
+python train_vq_tokenizer_v3.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dataset_name kit --n_resblk 3
 ```
-
-### Train text2length model:
+### Tokenize all motion data for the following training
 #### HumanML3D
 ```sh
-python train_length_est.py --name length_est_bigru --gpu_id 0 --dataset_name t2m
+python tokenize_script.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dataset_name t2m
+```
+
+#### KIT-ML
+```sh
+python tokenize_script.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dataset_name kit
+```
+
+### Train motion2text model:
+#### HumanML3D
+```sh
+python train_m2t_transformer.py --gpu_id 0 --name M2T_EL4_DL4_NH8_PS --n_enc_layers 4 --n_dec_layers 4 --proj_share_weight --dataset_name t2m
 ```
 #### KIT-ML
 ```sh
-python train_length_est.py --name length_est_bigru --gpu_id 0 --dataset_name kit
+python train_m2t_transformer.py --gpu_id 0 --name M2T_EL3_DL3_NH8_PS --n_enc_layers 3 --n_dec_layers 3 --proj_share_weight --dataset_name kit
 ```
 ### Training text2motion model:
 #### HumanML3D
 ```sh
-python train_comp_v6.py --name Comp_v6_KLD01 --gpu_id 0 --lambda_kld 0.01 --dataset_name t2m
+python train_t2m_joint_seq2seq.py --gpu_id 0 --name T2M_Seq2Seq_NML1_Ear_SME0_N --start_m2t_ep 0 --dataset_name t2m
 ```
 #### KIT-ML
 ```sh
-python train_comp_v6.py --name Comp_v6_KLD005 --gpu_id 0 --lambda_kld 0.005 --dataset_name kit
+python train_t2m_joint_seq2seq.py --gpu_id 0 --name T2M_Seq2Seq_NML1_Ear_SME0_N --start_m2t_ep 0 --dataset_name kit
 ```
-### Training motion & text feature extractors:
-#### HumanML3D
-```sh
-python train_tex_mot_match.py --name text_mot_match --gpu_id 1 --batch_size 8 --dataset_name t2m
-```
-#### KIT-ML
-```sh
-python train_tex_mot_match.py --name text_mot_match --gpu_id 1 --batch_size 8 --dataset_name kit
-```
+### Motion & text feature extractors:
+We use the same extractors provided by https://github.com/EricGuo5513/text-to-motion
+
     
 ## Generating and Animating 3D Motions (HumanML3D)
 #### Sampling results from test sets
