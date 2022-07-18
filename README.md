@@ -1,9 +1,7 @@
 # TM2T: Stochastical and Tokenized Modeling for the Reciprocal Generation of 3D Human Motions and Texts (ECCV 2022)
-## [[Project Page]](https://ericguo5513.github.io/TM2T) [[Paper]]https://arxiv.org/abs/2207.01696.pdf)
+## [[Project Page]](https://ericguo5513.github.io/TM2T) [[Paper]](https://arxiv.org/abs/2207.01696.pdf)
 
 ![teaser_image](https://github.com/EricGuo5513/TM2T/blob/main/docs/teaser_image.png)
-  
-  Given a textual description for example, *"the figure rises from a lying position and walks in a counterclockwise circle, and then lays back down the ground"*, our approach generates a diverse set of 3d human motions that are faithful to the provided text.
   
 ## Python Virtual Environment
 
@@ -11,7 +9,7 @@ Anaconda is recommended to create this virtual environment.
   
   ```sh
   conda create -f environment.yaml
-  conda activate text2motion_pub
+  conda activate tm2t
   ```
   
 If you cannot successfully create the environment, here is a list of required libraries:
@@ -25,6 +23,7 @@ If you cannot successfully create the environment, here is a list of required li
   tqdm
   ffmpeg = 4.3.1   # Other version may also work but are not tested.
   matplotlib = 3.3.1
+  [nlpeval](https://github.com/Maluuba/nlg-eval)
   ```
   
   After all, if you want to generate 3D motions from customized raw texts, you still need to install the language model for spacy. 
