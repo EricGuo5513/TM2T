@@ -14,7 +14,7 @@ Anaconda is recommended to create this virtual environment.
   
 If you cannot successfully create the environment, here is a list of required libraries:
   ```
-  Python = 3.7.9   # Other version may also work but are not tested.
+  Python = 3.7.9   # Other version may also work but is not tested.
   PyTorch = 1.6.0 (conda install pytorch==1.6.0 torchvision==0.7.0 -c pytorch)  #Other version may also work but are not tested.
   scipy
   numpy
