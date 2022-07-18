@@ -120,7 +120,7 @@ We use the same extractors provided by https://github.com/EricGuo5513/text-to-mo
 
     
 ## Generating and Animating 3D Motions (HumanML3D)
-### Translating motions into langauge (using test sets)
+### Translating motions into langauge (using test set)
 With Beam Search:
 ```sh
 python evaluate_m2t_transformer.py --name M2T_EL4_DL4_NH8_PS --gpu_id 2 --num_results 20 --n_enc_rs 4 --n_dec_layers 4 --proj_share_weight --ext beam_search
@@ -131,7 +131,7 @@ With Sampling:
 python evaluate_m2t_transformer.py --name M2T_EL4_DL4_NH8_PS --gpu_id 2 --num_results 20 --n_enc_layers 4 --n_dec_layers 4 --proj_share_weight --sample --top_k 3 --ext top_3
 ```
 
-### Generating motions from texts (using test sets)
+### Generating motions from texts (using test set)
 ```sh
 python evaluate_t2m_seq2seq.py --name T2M_Seq2Seq_NML1_Ear_SME0_N --num_results 10 --repeat_times 3 --sample --ext sample
 ```
