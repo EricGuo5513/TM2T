@@ -86,7 +86,7 @@ python train_vq_tokenizer_v3.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3
 ```sh
 python train_vq_tokenizer_v3.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dataset_name kit --n_resblk 3
 ```
-### Tokenize all motion data for the following training
+### Tokenizing all motion data for the following training
 #### HumanML3D
 ```sh
 python tokenize_script.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dataset_name t2m
@@ -97,7 +97,7 @@ python tokenize_script.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dat
 python tokenize_script.py --gpu_id 0 --name VQVAEV3_CB1024_CMT_H1024_NRES3 --dataset_name kit
 ```
 
-### Train motion2text model:
+### Training motion2text model:
 #### HumanML3D
 ```sh
 python train_m2t_transformer.py --gpu_id 0 --name M2T_EL4_DL4_NH8_PS --n_enc_layers 4 --n_dec_layers 4 --proj_share_weight --dataset_name t2m
@@ -120,25 +120,41 @@ We use the same extractors provided by https://github.com/EricGuo5513/text-to-mo
 
     
 ## Generating and Animating 3D Motions (HumanML3D)
-#### Sampling results from test sets
+#### Translating motions into langauge (using test sets)
+With Beam Search:
 ```sh
-python eval_comp_v6.py --name Comp_v6_KLD01 --est_length --repeat_time 3 --num_results 10 --ext default --gpu_id 1
+python evaluate_m2t_transformer.py --name M2T_EL4_DL4_NH8_PS --gpu_id 2 --num_results 20 --n_enc_rs 4 --n_dec_layers 4 --proj_share_weight --ext beam_search
 ```
-where *--est_length* asks the model to use sampled motion lengths for generation, *--repeat_time* gives how many sampling rounds are carried out for each description. This script will results in 3x10 animations under directory *./eval_results/t2m/Comp_v6_KLD01/default/*.
+
+With Sampling:
+```sh
+python evaluate_m2t_transformer.py --name M2T_EL4_DL4_NH8_PS --gpu_id 2 --num_results 20 --n_enc_layers 4 --n_dec_layers 4 --proj_share_weight --sample --top_k 3 --ext top_3
+```
+
+#### Generating motions from texts (using test sets)
+```sh
+python evaluate_t2m_seq2seq.py --name T2M_Seq2Seq_NML1_Ear_SME0_N --num_results 10 --repeat_times 3 --sample --ext sample
+```
+where  *--repeat_time* gives how many sampling rounds are carried out for each description. This script will results in 3x10 animations under directory *./eval_results/t2m/T2M_Seq2Seq_NML1_Ear_SME0_N/sample/*.
 
 #### Sampling results from customized descriptions
 ```sh
-python gen_motion_script.py --name Comp_v6_KLD01 --text_file input.txt --repeat_time 3 --ext customized --gpu_id 1
+python gen_script_t2m_seq2seq.py --name T2M_Seq2Seq_NML1_Ear_SME0_N  --repeat_times 3 --sample --ext customized --text_file ./input.txt
 ```
 This will generate 3 animated motions for each description given in text_file *./input.txt*.
 
 If you find problem with installing ffmpeg, you may not be able to animate 3d results in mp4. Try gif instead.
 
 ## Quantitative Evaluations
+### Evaluating Motion2Text
 ```sh
-python final_evaluation.py 
+python final_evaluation_m2t.py 
 ```
-This will evaluate the model performance on HumanML3D dataset by default. You could also run on KIT-ML dataset by uncommenting certain lines in *./final_evaluation.py*. The statistical results will saved to *./t2m_evaluation.log*.
+### Evaluating Motion2Text
+```sh
+python final_evaluation_t2m.py 
+```
+This will evaluate the model performance on HumanML3D dataset by default. You could also run on KIT-ML dataset by uncommenting certain lines in *./final_evaluation.py*. The statistical results will saved to *./m2t(t2m)_evaluation.log*.
 
 ### Misc
  Contact Chuan Guo at cguo2@ualberta.ca for any questions or comments.
