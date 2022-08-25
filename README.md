@@ -123,7 +123,7 @@ We use the same extractors provided by https://github.com/EricGuo5513/text-to-mo
 ### Translating motions into langauge (using test set)
 With Beam Search:
 ```sh
-python evaluate_m2t_transformer.py --name M2T_EL4_DL4_NH8_PS --gpu_id 2 --num_results 20 --n_enc_rs 4 --n_dec_layers 4 --proj_share_weight --ext beam_search
+python evaluate_m2t_transformer.py --name M2T_EL4_DL4_NH8_PS --gpu_id 2 --num_results 20 --n_enc_layers 4 --n_dec_layers 4 --proj_share_weight --ext beam_search
 ```
 
 With Sampling:
