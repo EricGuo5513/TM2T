@@ -66,7 +66,7 @@ If you cannot successfully create the environment, here is a list of required li
  #### Download models for HumanML3D from [[here]](https://drive.google.com/file/d/1o7RTDQcToJjTm9_mNWTyzvZvjTWpZfug/view?usp=sharing). Unzip and place them under checkpoint directory, which should be like
 ```
 ./checkpoints/t2m/
-./checkpoints/t2m/Comp_v6_KLD01/                   # A dumb folder containing information for evaluation dataloading
+./checkpoints/t2m/Comp_v6_KLD005/                   # A dumb folder containing information for evaluation dataloading
 ./checkpoints/t2m/VQVAEV3_CB1024_CMT_H1024_NRES3/  # Motion discretizer
 ./checkpoints/t2m/M2T_EL4_DL4_NH8_PS/              # Motion (token)-to-Text translation model
 ./checkpoints/t2m/T2M_Seq2Seq_NML1_Ear_SME0_N/     # Text-to-Motion (token) generation model
