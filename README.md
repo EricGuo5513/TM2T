@@ -63,7 +63,7 @@ If you cannot successfully create the environment, here is a list of required li
   mkdir ./checkpoints
   ```
     
- #### Download models for HumanML3D from [[here]](https://drive.google.com/file/d/1o7RTDQcToJjTm9_mNWTyzvZvjTWpZfug/view?usp=sharing). Unzip and place them under checkpoint directory, which should be like
+ #### Download models for HumanML3D from [[here]](https://drive.google.com/file/d/1OXy2FBhXrswT6zE4SBSPpVfQhxmI8Zzy/view?usp=sharing). Unzip and place them under checkpoint directory, which should be like
 ```
 ./checkpoints/t2m/
 ./checkpoints/t2m/Comp_v6_KLD005/                   # A dumb folder containing information for evaluation dataloading
@@ -72,7 +72,7 @@ If you cannot successfully create the environment, here is a list of required li
 ./checkpoints/t2m/T2M_Seq2Seq_NML1_Ear_SME0_N/     # Text-to-Motion (token) generation model
 ./checkpoints/t2m/text_mot_match/                  # Motion & Text feature extractors for evaluation
  ```
- #### Download models for KIT-ML [[here]](https://drive.google.com/file/d/1xEoMy1aBRe0fxYeSzeLwzjHr9Ia6d6Gf/view?usp=sharing). Unzip and place them under checkpoint directory.
+ #### Download models for KIT-ML [[here]](https://drive.google.com/file/d/1ied_KWvqXXsP2Gls-SvzjXIZtHHZ5zpi/view?usp=sharing). Unzip and place them under checkpoint directory.
     
  ## Training Models
  
